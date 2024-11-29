@@ -3,7 +3,7 @@ import { CardWrapper, CardInner, CardFront, CardBack } from './mixins'
 
 const Component = ({ image, flipped, onClick }) => (
   <CardWrapper onClick={onClick}>
-    <CardInner flipped={flipped}>
+    <CardInner $flipped={flipped}>
       <CardFront />
       <CardBack>
         <img src={image} alt="Pokemon" />

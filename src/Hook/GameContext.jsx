@@ -4,10 +4,10 @@ export const GameContext = createContext(null)
 
 export const GameProvider = ({ children }) => {
   const [gameState, setGameState] = useState('start')
-  const [points, setPoints] = useState(0)
+  const [score, setScore] = useState(0)
 
   return (
-    <GameContext.Provider value={{ gameState, setGameState, points, setPoints }}>
+    <GameContext.Provider value={{ gameState, setGameState, score, setScore }}>
       {children}
     </GameContext.Provider>
   )

@@ -3,14 +3,13 @@ import styled from 'styled-components'
 export const CardWrapper = styled.div`
   perspective: 1000px;
 `
-
 export const CardInner = styled.div`
   width: 120px;
   height: 120px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
-  transform: ${({ flipped }) => (flipped ? 'rotateY(180deg)' : 'rotateY(0)')};
+  transform: ${({ $flipped }) => ($flipped ? 'rotateY(180deg)' : 'rotateY(0)')};
 `
 
 export const CardFace = styled.div`
