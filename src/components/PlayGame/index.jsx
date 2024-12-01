@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext } from '../../Hook/GameContext'
 import shufflePokemonCards from '../../utils/shuffleCards'
+import ImagePokemon from '../ImagePokemon'
 import Board from './components/Board'
 
 const Component = () => {
@@ -51,7 +52,7 @@ const Component = () => {
 
   return (
     <div>
-      <h1>Juego en curso</h1>
+      <ImagePokemon />
       <p>Puntos: {score}</p>
       <Board
         cards={cards}

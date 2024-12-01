@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { GameContext } from '../../Hook/GameContext'
-import { StartContainer, ImgContainer, MenuContainer, StyledButton } from './mixins'
-import pokeomonSVG from '../../assets/International_Pokémon_logo.svg'
+import { StartContainer, MenuContainer } from './mixins'
+import PokemonBotton from '../Botton-Pokemon'
+import ImagePokemon from '../ImagePokemon'
 
 const Component = () => {
   const { setGameState } = useContext(GameContext)
@@ -11,14 +12,11 @@ const Component = () => {
   }
   return (
     <StartContainer>
-      <ImgContainer>
-        <img src={pokeomonSVG} />
-        <p>Memotes</p>
-      </ImgContainer>
+      <ImagePokemon />
       <MenuContainer>
-        <StyledButton onClick={() => handlePlaying()}>Single Player</StyledButton>
-        <StyledButton onClick={() => handlePlaying()}>Two Player</StyledButton>
-        <StyledButton onClick={() => handlePlaying()}>Options</StyledButton>
+        <PokemonBotton onClick={handlePlaying}>Single Player </PokemonBotton>
+        <PokemonBotton onClick={handlePlaying}>Two Player</PokemonBotton>
+        <PokemonBotton onClick={handlePlaying}>Options </PokemonBotton>
       </MenuContainer>
     </StartContainer>
   )
