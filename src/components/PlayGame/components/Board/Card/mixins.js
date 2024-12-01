@@ -4,8 +4,8 @@ export const CardWrapper = styled.div`
   perspective: 1000px;
 `
 export const CardInner = styled.div`
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;

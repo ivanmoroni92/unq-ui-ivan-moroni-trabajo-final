@@ -3,7 +3,7 @@ import { colors } from '../../constants/colors'
 
 export const EndContainer = styled.div`
   width: 600px;
-  height: 600px;
+  height: 630px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,4 +28,10 @@ export const Score = styled.p`
   color: ${colors.NeonGold};
   font-weight: 300px;
   margin-top: 8px;
+`
+
+export const PikachuImg = styled.img`
+  background-color: #fff;
+
+  object-fit: cover;
 `

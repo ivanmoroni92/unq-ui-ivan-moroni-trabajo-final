@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext } from '../../Hook/GameContext'
+import { PlayingContainer, ScoreContainer } from './mixins'
 import shufflePokemonCards from '../../utils/shuffleCards'
 import ImagePokemon from '../ImagePokemon'
 import Board from './components/Board'
@@ -51,16 +52,18 @@ const Component = () => {
   }
 
   return (
-    <div>
+    <PlayingContainer>
       <ImagePokemon />
-      <p>Puntos: {score}</p>
+      <ScoreContainer>
+        <p>Score: {score}</p>
+      </ScoreContainer>
       <Board
         cards={cards}
         flippedCards={flippedCards}
         matchedCards={matchedCards}
         handleCardClick={handleCardClick}
       />
-    </div>
+    </PlayingContainer>
   )
 }
 
