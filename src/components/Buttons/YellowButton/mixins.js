@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { colors } from '../../constants/colors'
+import { colors } from '../../../constants/colors'
 
 export const StyledButton = styled.button`
-  background-color: #ffcb03;
+  width: 160px;
+  background-color: ${colors.DarkYellow};
   color: ${colors.YInMnBlue};
   border: 2px solid ${colors.DelftBlue};
   border-radius: 8px;
@@ -13,7 +14,8 @@ export const StyledButton = styled.button`
   transition: all 0.3s ease;
   margin: 10px;
 
-  &:hover {
+  &:hover,
+  &.selected {
     background-color: ${colors.YInMnBlue};
     color: ${colors.DarkYellow};
     transform: scale(1.1);

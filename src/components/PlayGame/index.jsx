@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext } from '../../Hook/GameContext'
 import { PlayingContainer, ScoreContainer } from './mixins'
-import shufflePokemonCards from '../../utils/shuffleCards'
+import { shufflePokemonCards } from '../../utils'
 import ImagePokemon from '../ImagePokemon'
 import Board from './components/Board'
 
 const Component = () => {
-  const { setGameState, score, setScore } = useContext(GameContext)
+  const { setGameState, score, setScore, difficulty } = useContext(GameContext)
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
   const [matchedCards, setMatchedCards] = useState([])
 
   useEffect(() => {
-    shufflePokemonCards().then((shuffledCards) => {
+    shufflePokemonCards(difficulty).then((shuffledCards) => {
       setCards(shuffledCards)
     })
   }, [])

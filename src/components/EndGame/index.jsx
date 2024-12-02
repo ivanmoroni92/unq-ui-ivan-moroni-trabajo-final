@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { GameContext } from '../../Hook/GameContext'
 import { EndContainer, MenuContainer, ScoreContainet, EndTitle, Score } from './mixins'
-import PokemonBotton from '../Botton-Pokemon'
+import YellowButtom from '../Buttons/YellowButton'
 import ImagePokemon from '../ImagePokemon'
 
 const Component = () => {
@@ -24,8 +24,8 @@ const Component = () => {
       </ScoreContainet>
 
       <MenuContainer>
-        <PokemonBotton onClick={handleRestart}> Restart the game </PokemonBotton>
-        <PokemonBotton onClick={handleMenu}> Menu </PokemonBotton>
+        <YellowButtom onClick={handleRestart}> Restart </YellowButtom>
+        <YellowButtom onClick={handleMenu}> Menu </YellowButtom>
       </MenuContainer>
     </EndContainer>
   )

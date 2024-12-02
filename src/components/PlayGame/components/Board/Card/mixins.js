@@ -4,8 +4,8 @@ export const CardWrapper = styled.div`
   perspective: 1000px;
 `
 export const CardInner = styled.div`
-  width: 100px;
-  height: 100px;
+  width: ${({ $size }) => $size || '100px'};
+  height: ${({ $size }) => $size || '100px'};
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
@@ -36,8 +36,8 @@ export const CardBack = styled(CardFace)`
   transform: rotateY(180deg);
 
   img {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 `
