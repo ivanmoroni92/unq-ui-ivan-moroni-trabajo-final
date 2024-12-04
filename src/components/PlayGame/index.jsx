@@ -1,12 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext } from '../../Hook/GameContext'
-import { PlayingContainer, ScoreContainer } from './mixins'
-import { shufflePokemonCards } from '../../utils'
+import { PlayingContainer, ScoreContainer, ScoreText, IconPlayer } from './mixins'
+import {
+  shufflePokemonCards,
+  isCardClickable,
+  handleMatchedCards,
+  resetFlippedCards,
+  handleTurnSwitch,
+} from '../../utils'
 import ImagePokemon from '../ImagePokemon'
 import Board from './components/Board'
+import Player1Icon from '../../assets/eve.svg'
+import Player2Icon from '../../assets/poliwag.svg'
 
 const Component = () => {
-  const { setGameState, score, setScore, difficulty } = useContext(GameContext)
+  const { setGameState, players, currentPlayer, switchTurn, difficulty, mode, setPlayers } =
+    useContext(GameContext)
   const [cards, setCards] = useState([])
   const [flippedCards, setFlippedCards] = useState([])
   const [matchedCards, setMatchedCards] = useState([])
@@ -18,44 +27,71 @@ const Component = () => {
   }, [])
 
   const handleCardClick = (id) => {
-    if (flippedCards.length === 2) return
+    if (!isCardClickable(id, cards, flippedCards, matchedCards)) return
 
     const clickedCard = cards.find((card) => card.id === id)
-
-    if (matchedCards.includes(clickedCard.pairId) || flippedCards.some((card) => card.id === id)) {
-      return
-    }
-
     const newFlippedCards = [...flippedCards, clickedCard]
+
     setFlippedCards(newFlippedCards)
 
     if (newFlippedCards.length === 2) {
       const [firstCard, secondCard] = newFlippedCards
 
       if (firstCard.pairId === secondCard.pairId) {
-        setMatchedCards((prev) => [...prev, firstCard.pairId])
-        setScore((prev) => prev + 1)
-
         setTimeout(() => {
-          setFlippedCards([])
-
-          if (matchedCards.length + 1 === cards.length / 2) {
+          const matchedPairs = handleMatchedCards(
+            firstCard.pairId,
+            matchedCards,
+            currentPlayer,
+            setMatchedCards,
+            setPlayers
+          )
+          resetFlippedCards(setFlippedCards)
+          if (matchedPairs === cards.length / 2) {
             setGameState('end')
           }
         }, 1000)
       } else {
         setTimeout(() => {
-          setFlippedCards([])
+          resetFlippedCards(setFlippedCards)
+          handleTurnSwitch(mode, switchTurn)
         }, 1000)
       }
     }
+  }
+
+  const playerIcons = {
+    1: Player1Icon,
+    2: Player2Icon,
+  }
+
+  const getCurrentPlayerIcon = (currentPlayerId) => {
+    const player = players.find((player) => player.id === currentPlayerId)
+    return player ? (player.id === 1 ? Player1Icon : Player2Icon) : null
   }
 
   return (
     <PlayingContainer>
       <ImagePokemon />
       <ScoreContainer>
-        <p>Score: {score}</p>
+        {mode === 'multi' && (
+          <div>
+            <ScoreText>
+              Turn of:
+              <IconPlayer
+                src={getCurrentPlayerIcon(currentPlayer)}
+                alt={`Icon of ${players.find((player) => player.id === currentPlayer).name}`}
+              />
+            </ScoreText>
+          </div>
+        )}
+        {players.map((player) => (
+          <ScoreText key={player.id}>
+            Player
+            <IconPlayer src={playerIcons[player.id]} alt={`Icon of ${player.name}`} />:{' '}
+            {player.score}
+          </ScoreText>
+        ))}
       </ScoreContainer>
       <Board
         cards={cards}

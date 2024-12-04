@@ -7,7 +7,7 @@ const Component = () => {
   return (
     <ImgContainer>
       <img src={pokeomonSVG} />
-      <p>Memotes</p>
+      <p>Memotest</p>
     </ImgContainer>
   )
 }

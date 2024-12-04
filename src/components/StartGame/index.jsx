@@ -4,12 +4,23 @@ import { StartContainer, MenuContainer, OptionsContainer, OptionTitle } from './
 import YellowButton from '../Buttons/YellowButton'
 import ImagePokemon from '../ImagePokemon'
 import TextBotton from '../Buttons/TextButton'
-import Arrow from '../../assets/right-arrow-svgrepo-com.svg'
+
 const Component = () => {
-  const { setGameState, difficulty, setDifficulty } = useContext(GameContext)
+  const { setGameState, difficulty, setDifficulty, setPlayers, setMode, setCurrentPlayer } =
+    useContext(GameContext)
   const [showOptions, setShowOptions] = useState(false)
 
-  const handlePlaying = () => {
+  const handlePlaying = (mode) => {
+    setMode(mode)
+    setPlayers(
+      mode === 'multi'
+        ? [
+            { id: 1, score: 0 },
+            { id: 2, score: 0 },
+          ]
+        : [{ id: 1, score: 0 }]
+    )
+    setCurrentPlayer(1)
     setGameState('playing')
   }
 
@@ -56,8 +67,8 @@ const Component = () => {
           </>
         ) : (
           <>
-            <YellowButton onClick={handlePlaying}>Single Player </YellowButton>
-            <YellowButton onClick={handlePlaying}>Two Player</YellowButton>
+            <YellowButton onClick={() => handlePlaying('single')}>Single Player</YellowButton>
+            <YellowButton onClick={() => handlePlaying('multi')}>Two Player</YellowButton>
             <YellowButton onClick={handleOptions}>Options </YellowButton>
           </>
         )}

@@ -3,7 +3,7 @@ import { colors } from '../../constants/colors'
 
 export const EndContainer = styled.div`
   width: 600px;
-  height: 630px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,4 +34,25 @@ export const PikachuImg = styled.img`
   background-color: #fff;
 
   object-fit: cover;
+`
+
+export const WinnerDisplay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: ${colors.NeonGold};
+    display: flex;
+    align-items: center;
+  }
+`
+
+export const IconPlayer = styled.img`
+  margin-top: 26px;
+  width: 150;
+  height: 150px;
+  border-radius: 50%;
 `

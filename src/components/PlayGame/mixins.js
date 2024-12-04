@@ -3,7 +3,7 @@ import { colors } from '../../constants/colors'
 
 export const PlayingContainer = styled.div`
   width: 600px;
-  height: 630px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ export const PlayingContainer = styled.div`
 
 export const ScoreContainer = styled.div`
   width: 600px;
-  height: 20px;
+  height: 30px;
   background-color: ${colors.YInMnBlue};
   color: ${colors.NeonGold};
   display: flex;
@@ -20,4 +20,19 @@ export const ScoreContainer = styled.div`
   justify-content: space-between;
   padding: 0px 25px;
   margin: 16px 0px;
+`
+export const ScoreText = styled.p`
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: ${colors.NeonGold};
+`
+
+export const IconPlayer = styled.img`
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 `

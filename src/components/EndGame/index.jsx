@@ -1,31 +1,62 @@
 import React, { useContext } from 'react'
 import { GameContext } from '../../Hook/GameContext'
-import { EndContainer, MenuContainer, ScoreContainet, EndTitle, Score } from './mixins'
+import { EndContainer, MenuContainer, ScoreContainet, EndTitle, Score, IconPlayer } from './mixins'
 import YellowButtom from '../Buttons/YellowButton'
 import ImagePokemon from '../ImagePokemon'
+import Player1Icon from '../../assets/eve.svg'
+import Player2Icon from '../../assets/poliwag.svg'
 
 const Component = () => {
-  const { setGameState, score, setScore } = useContext(GameContext)
+  const { resetGame, players, mode } = useContext(GameContext)
+
+  const winner =
+    mode === 'multi'
+      ? players.reduce((prev, current) => (current.score > prev.score ? current : prev), players[0])
+      : players[0]
+
   const handleMenu = () => {
-    setScore(0)
-    setGameState('start')
+    resetGame('start', mode)
   }
 
   const handleRestart = () => {
-    setScore(0)
-    setGameState('playing')
+    resetGame('playing', mode)
   }
+
+  const getPlayerIcon = (playerId) => {
+    switch (playerId) {
+      case 1:
+        return <IconPlayer src={Player1Icon} alt="Player 1 Icon" />
+      case 2:
+        return <IconPlayer src={Player2Icon} alt="Player 2 Icon" />
+      default:
+        return null
+    }
+  }
+
   return (
     <EndContainer>
       <ImagePokemon />
       <ScoreContainet>
-        <EndTitle>Game Over!</EndTitle>
-        <Score>Score: {score}</Score>
+        <EndTitle>Winner!</EndTitle>
+
+        {mode === 'multi' ? (
+          <>
+            <Score>
+              Player {winner.id} - Score: {winner.score}
+            </Score>
+            {getPlayerIcon(winner.id)}
+          </>
+        ) : (
+          <>
+            <Score>Player 1 - Score: {players[0].score}</Score>
+            {getPlayerIcon(1)}
+          </>
+        )}
       </ScoreContainet>
 
       <MenuContainer>
-        <YellowButtom onClick={handleRestart}> Restart </YellowButtom>
-        <YellowButtom onClick={handleMenu}> Menu </YellowButtom>
+        <YellowButtom onClick={handleRestart}>Restart</YellowButtom>
+        <YellowButtom onClick={handleMenu}>Menu</YellowButtom>
       </MenuContainer>
     </EndContainer>
   )
