@@ -9,7 +9,7 @@ export const ScoreContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 25px;
+  padding: 0px 16px;
   margin: 16px 0px;
 `
 export const ScoreText = styled.p`
