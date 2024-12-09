@@ -1,5 +1,9 @@
 # Pokémon Memotest Game
 
+![Demo Gameplay 1](src/assets/images/demo-gameplay-1.png)
+
+![Demo Gameplay 2](src/assets//images//demo-gameplay-2.png)
+
 ## Instalación y configuración
 
 1. Clona este repositorio:
@@ -14,7 +18,7 @@
    ```bash
    npm install
    ```
-4. Inicia el servidor de desarrollo:
+4. Inicia el Juego:
    ```bash
    npm start
    ```
