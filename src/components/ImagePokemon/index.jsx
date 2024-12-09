@@ -1,5 +1,5 @@
 import React from 'react'
-import pokeomonSVG from '../../assets/International_Pokémon_logo.svg'
+import pokeomonSVG from '../../assets/images/International_Pokémon_logo.svg'
 
 import { ImgContainer } from './mixins'
 

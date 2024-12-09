@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { GameContext } from '../../Hook/GameContext'
-import { StartContainer, MenuContainer, OptionsContainer, OptionTitle } from './mixins'
+import { MenuContainer, OptionsContainer, OptionTitle } from './mixins'
 import YellowButton from '../Buttons/YellowButton'
 import ImagePokemon from '../ImagePokemon'
 import TextBotton from '../Buttons/TextButton'
@@ -37,7 +37,7 @@ const Component = () => {
   }
 
   return (
-    <StartContainer>
+    <>
       <ImagePokemon />
       <MenuContainer>
         {showOptions ? (
@@ -73,7 +73,7 @@ const Component = () => {
           </>
         )}
       </MenuContainer>
-    </StartContainer>
+    </>
   )
 }
 

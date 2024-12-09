@@ -1,15 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../constants/colors'
 
-export const PlayingContainer = styled.div`
-  width: 600px;
-  height: 650px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-`
-
 export const ScoreContainer = styled.div`
   width: 600px;
   height: 30px;

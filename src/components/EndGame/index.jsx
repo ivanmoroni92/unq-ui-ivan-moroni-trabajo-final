@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { GameContext } from '../../Hook/GameContext'
-import { EndContainer, MenuContainer, ScoreContainet, EndTitle, Score, IconPlayer } from './mixins'
+import { MenuContainer, ScoreContainet, EndTitle, Score, IconPlayer } from './mixins'
 import YellowButtom from '../Buttons/YellowButton'
 import ImagePokemon from '../ImagePokemon'
-import Player1Icon from '../../assets/eve.svg'
-import Player2Icon from '../../assets/poliwag.svg'
+import Player1Icon from '../../assets/images/eve.svg'
+import Player2Icon from '../../assets/images/poliwag.svg'
 
 const Component = () => {
   const { resetGame, players, mode } = useContext(GameContext)
@@ -34,7 +34,7 @@ const Component = () => {
   }
 
   return (
-    <EndContainer>
+    <>
       <ImagePokemon />
       <ScoreContainet>
         <EndTitle>Winner!</EndTitle>
@@ -58,7 +58,7 @@ const Component = () => {
         <YellowButtom onClick={handleRestart}>Restart</YellowButtom>
         <YellowButtom onClick={handleMenu}>Menu</YellowButtom>
       </MenuContainer>
-    </EndContainer>
+    </>
   )
 }
 

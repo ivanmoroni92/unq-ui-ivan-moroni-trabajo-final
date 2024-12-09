@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GameContext } from '../../Hook/GameContext'
-import { PlayingContainer, ScoreContainer, ScoreText, IconPlayer } from './mixins'
+import { ScoreContainer, ScoreText, IconPlayer } from './mixins'
 import {
   shufflePokemonCards,
   isCardClickable,
@@ -10,8 +10,8 @@ import {
 } from '../../utils'
 import ImagePokemon from '../ImagePokemon'
 import Board from './components/Board'
-import Player1Icon from '../../assets/eve.svg'
-import Player2Icon from '../../assets/poliwag.svg'
+import Player1Icon from '../../assets/images/eve.svg'
+import Player2Icon from '../../assets/images/poliwag.svg'
 
 const Component = () => {
   const { setGameState, players, currentPlayer, switchTurn, difficulty, mode, setPlayers } =
@@ -71,7 +71,7 @@ const Component = () => {
   }
 
   return (
-    <PlayingContainer>
+    <>
       <ImagePokemon />
       <ScoreContainer>
         {mode === 'multi' && (
@@ -99,7 +99,7 @@ const Component = () => {
         matchedCards={matchedCards}
         handleCardClick={handleCardClick}
       />
-    </PlayingContainer>
+    </>
   )
 }
 

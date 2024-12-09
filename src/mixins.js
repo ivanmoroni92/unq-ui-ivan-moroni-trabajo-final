@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import pokemonImg from './assets/pokemon.jpg'
+import pokemonImg from './assets/images/pokemon.jpg'
+import { colors } from './constants/colors'
 
 export const PageContainer = styled.div`
   display: flex;
@@ -12,8 +13,14 @@ export const PageContainer = styled.div`
 `
 
 export const GameContainer = styled.div`
-  background-color: rgba(255, 255, 255, 0.9);
+  width: 600px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: ${colors.background};
   border-radius: 15px;
   padding: 16px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 15px ${colors.shadow};
 `
