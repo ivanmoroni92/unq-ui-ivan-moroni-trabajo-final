@@ -8,7 +8,7 @@
 
 1. Clona este repositorio:
    ```bash
-   https://github.com/ivanmoroni92/unq-ui-ivan-moroni-trabajo-final.git
+   git clone https://github.com/ivanmoroni92/unq-ui-ivan-moroni-trabajo-final.git
    ```
 2. Accede al directorio del proyecto:
    ```bash
