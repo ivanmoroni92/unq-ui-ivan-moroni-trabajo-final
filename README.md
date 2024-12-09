@@ -1,4 +1,4 @@
-# Memotest Game
+# Pokémon Memotest Game
 
 ## Instalación y configuración
 
@@ -25,7 +25,7 @@
 
 - `npm run dev`: Inicia el servidor de desarrollo.
 - `npm run build`: Genera una versión optimizada para producción.
-- `npm run preview`: Construye el proyecto y realiza un preview.
+- `npm run preview`: Inicia el servidor para probar la versión de producción.
 
 ---
 
