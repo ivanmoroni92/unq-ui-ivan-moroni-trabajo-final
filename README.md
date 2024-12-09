@@ -4,7 +4,7 @@
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/memotest-game.git
+   https://github.com/ivanmoroni92/unq-ui-ivan-moroni-trabajo-final.git
    ```
 2. Accede al directorio del proyecto:
    ```bash
@@ -16,7 +16,7 @@
    ```
 4. Inicia el servidor de desarrollo:
    ```bash
-   npm run start
+   npm start
    ```
 
 ---
@@ -25,8 +25,7 @@
 
 - `npm run dev`: Inicia el servidor de desarrollo.
 - `npm run build`: Genera una versión optimizada para producción.
-- `npm run start`: Construye el proyecto y realiza un preview.
-- `npm run lint`: Ejecuta ESLint para verificar el código.
+- `npm run preview`: Construye el proyecto y realiza un preview.
 
 ---
 
